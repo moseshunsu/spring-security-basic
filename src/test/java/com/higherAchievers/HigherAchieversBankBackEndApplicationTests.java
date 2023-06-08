@@ -1,10 +1,10 @@
-package com.higherAchievers.springsecuritybasic;
+package com.higherAchievers;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringSecurityBasicApplicationTests {
+class HigherAchieversBankBackEndApplicationTests {
 
 	@Test
 	void contextLoads() {

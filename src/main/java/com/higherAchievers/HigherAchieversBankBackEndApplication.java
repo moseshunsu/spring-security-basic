@@ -1,13 +1,13 @@
-package com.higherAchievers.springsecuritybasic;
+package com.higherAchievers;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringSecurityBasicApplication {
+public class HigherAchieversBankBackEndApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringSecurityBasicApplication.class, args);
+		SpringApplication.run(HigherAchieversBankBackEndApplication.class, args);
 	}
 
 }
