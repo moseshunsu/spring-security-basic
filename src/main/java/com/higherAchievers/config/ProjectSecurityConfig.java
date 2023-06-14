@@ -1,5 +1,6 @@
 package com.higherAchievers.config;
 
+import com.higherAchievers.filter.AuthoritiesLoggingAfterFilter;
 import com.higherAchievers.filter.CsrfCookieFilter;
 import com.higherAchievers.filter.RequestValidationBeforeFilter;
 import jakarta.servlet.http.HttpServletRequest;
@@ -46,6 +47,7 @@ public class ProjectSecurityConfig {
                         .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()))
                 .addFilterAfter(new CsrfCookieFilter(), BasicAuthenticationFilter.class)
                 .addFilterBefore(new RequestValidationBeforeFilter(), BasicAuthenticationFilter.class)
+                .addFilterAfter(new AuthoritiesLoggingAfterFilter(), BasicAuthenticationFilter.class)
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/myAccount").hasRole("USER")
                         .requestMatchers("/myBalance").hasAnyRole("USER","ADMIN")
