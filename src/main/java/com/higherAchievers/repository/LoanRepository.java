@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface LoanRepository extends JpaRepository<Loans, Long> {
 
-    @PreAuthorize("hasRole('USER')")
+    //@PreAuthorize("hasRole('USER')")
     List<Loans> findByCustomerIdOrderByStartDtDesc(int customerId);
 
 }
