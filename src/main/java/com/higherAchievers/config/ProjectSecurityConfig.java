@@ -1,9 +1,6 @@
 package com.higherAchievers.config;
 
-import com.higherAchievers.filter.AuthoritiesLoggingAfterFilter;
-import com.higherAchievers.filter.AuthoritiesLoggingAtFilter;
-import com.higherAchievers.filter.CsrfCookieFilter;
-import com.higherAchievers.filter.RequestValidationBeforeFilter;
+import com.higherAchievers.filter.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
@@ -46,6 +43,7 @@ public class ProjectSecurityConfig {
                 .addFilterBefore(new RequestValidationBeforeFilter(), BasicAuthenticationFilter.class)
                 .addFilterAfter(new AuthoritiesLoggingAfterFilter(), BasicAuthenticationFilter.class)
                 .addFilterAt(new AuthoritiesLoggingAtFilter(), BasicAuthenticationFilter.class)
+                .addFilterAfter(new JWTTokenGeneratorFilter(), BasicAuthenticationFilter.class)
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/myAccount").hasRole("USER")
                         .requestMatchers("/myBalance").hasAnyRole("USER","ADMIN")
